@@ -21,8 +21,10 @@ public class Operation {
     @Column(name = "price")
     private BigDecimal price;
     @Column(name = "warehouse_from")
-    private Warehouse warehouseFrom;
+    private Long warehouseFrom;
     @Column(name = "warehouse_to")
-    private Warehouse warehouseTo;
+    private Long warehouseTo;
+    @Column(name=("product_id"))
+    private Long productId;
 }
 
