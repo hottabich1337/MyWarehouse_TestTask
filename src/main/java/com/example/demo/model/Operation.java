@@ -1,0 +1,28 @@
+package com.example.demo.model;
+
+import lombok.Data;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.math.BigDecimal;
+
+@Data
+@Entity
+@Table(name="operation")
+public class Operation {
+    @Id
+    private Long id;
+    @Column(name = "operation_number")
+    private Long operationNumber;
+    @Column(name = "operation_type")
+    private OperationType operationType;
+    @Column(name = "price")
+    private BigDecimal price;
+    @Column(name = "warehouse_from")
+    private Warehouse warehouseFrom;
+    @Column(name = "warehouse_to")
+    private Warehouse warehouseTo;
+}
+
