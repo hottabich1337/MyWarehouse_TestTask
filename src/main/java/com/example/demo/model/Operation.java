@@ -2,10 +2,7 @@ package com.example.demo.model;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Data
@@ -26,5 +23,7 @@ public class Operation {
     private Long warehouseTo;
     @Column(name=("product_id"))
     private Long productId;
+    @Column(name=("count"))
+    private Long count;
 }
 
