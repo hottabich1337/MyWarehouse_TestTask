@@ -7,6 +7,6 @@ import java.math.BigDecimal;
 @Data
 public class OperationItemDto {
     private Long article;
-    private Long count;
+    private Integer count;
     private BigDecimal price;
 }

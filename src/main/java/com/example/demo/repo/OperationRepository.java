@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface OperationRepository extends JpaRepository<Operation,Long> {
     List<Operation> getByNumber(Long number);
-    List<Operation> getByWarehouseFromEqualsOrWarehouseToEquals(Long id);
+    List<Operation> getByWarehouseFromEqualsOrWarehouseToEquals(Long warehouseFrom,Long warehouseTo);
     List<Operation> getByProductId(Long id);
 }

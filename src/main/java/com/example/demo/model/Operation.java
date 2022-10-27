@@ -10,9 +10,10 @@ import java.math.BigDecimal;
 @Table(name="operation")
 public class Operation {
     @Id
+    @GeneratedValue
     private Long id;
     @Column(name = "operation_number")
-    private Long operationNumber;
+    private Long number;
     @Column(name = "operation_type")
     private OperationType operationType;
     @Column(name = "price")
@@ -24,6 +25,6 @@ public class Operation {
     @Column(name=("product_id"))
     private Long productId;
     @Column(name=("count"))
-    private Long count;
+    private Integer count;
 }
 
