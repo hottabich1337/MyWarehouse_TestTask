@@ -1,10 +1,11 @@
 package warehouse.endpoint;
 
-import me.marat.warehouse.model.api.ApiResponse;
-import me.marat.warehouse.model.dto.WarehouseDto;
-import me.marat.warehouse.service.WarehouseService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import warehouse.model.api.ApiResponse;
+import warehouse.model.dto.WarehouseDto;
+import warehouse.service.WarehouseService;
 
 import java.util.List;
 

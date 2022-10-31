@@ -1,10 +1,11 @@
 package warehouse.service;
 
-import me.marat.warehouse.model.report.ReportFormat;
-import me.marat.warehouse.model.report.ReportType;
-import me.marat.warehouse.service.report.ReportBuilder;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import warehouse.model.report.ReportFormat;
+import warehouse.model.report.ReportType;
+import warehouse.service.report.ReportBuilder;
 
 import java.io.File;
 import java.util.List;

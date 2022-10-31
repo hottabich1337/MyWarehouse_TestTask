@@ -1,12 +1,13 @@
 package warehouse.endpoint;
 
-import me.marat.warehouse.exception.InsufficientItemException;
-import me.marat.warehouse.model.api.ApiResponse;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+import warehouse.exception.InsufficientItemException;
+import warehouse.model.api.ApiResponse;
 
 @ControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {

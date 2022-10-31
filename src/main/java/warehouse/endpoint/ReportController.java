@@ -2,9 +2,6 @@ package warehouse.endpoint;
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import me.marat.warehouse.model.report.ReportFormat;
-import me.marat.warehouse.model.report.ReportType;
-import me.marat.warehouse.service.ReportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
@@ -15,6 +12,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import warehouse.model.report.ReportFormat;
+import warehouse.model.report.ReportType;
+import warehouse.service.ReportService;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

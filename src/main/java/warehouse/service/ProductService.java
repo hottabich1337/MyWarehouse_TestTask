@@ -1,11 +1,12 @@
 package warehouse.service;
 
-import me.marat.warehouse.domain.Product;
-import me.marat.warehouse.model.dto.ProductDto;
-import me.marat.warehouse.repository.ProductRepository;
+
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import warehouse.domain.Product;
+import warehouse.model.dto.ProductDto;
+import warehouse.repository.ProductRepository;
 
 import java.util.List;
 

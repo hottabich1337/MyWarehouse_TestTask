@@ -1,15 +1,16 @@
 package warehouse.endpoint;
 
-import me.marat.warehouse.model.api.ApiResponse;
-import me.marat.warehouse.model.dto.AdmissionDto;
-import me.marat.warehouse.model.dto.MovingDto;
-import me.marat.warehouse.model.dto.SaleDto;
-import me.marat.warehouse.service.OperationService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import warehouse.model.api.ApiResponse;
+import warehouse.model.dto.AdmissionDto;
+import warehouse.model.dto.MovingDto;
+import warehouse.model.dto.SaleDto;
+import warehouse.service.OperationService;
 
 @RestController
 @RequestMapping("/operation")

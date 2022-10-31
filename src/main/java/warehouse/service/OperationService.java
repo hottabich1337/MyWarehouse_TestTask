@@ -1,22 +1,23 @@
 package warehouse.service;
 
-import me.marat.warehouse.domain.*;
-import me.marat.warehouse.exception.InsufficientItemException;
-import me.marat.warehouse.model.dto.AdmissionDto;
-import me.marat.warehouse.model.dto.MovingDto;
-import me.marat.warehouse.model.dto.SaleDto;
-import me.marat.warehouse.repository.OperationRepository;
-import me.marat.warehouse.repository.ProductRepository;
-import me.marat.warehouse.repository.WarehouseRepository;
-import me.marat.warehouse.util.InputValidator;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import warehouse.domain.*;
+import warehouse.exception.InsufficientItemException;
+import warehouse.model.dto.AdmissionDto;
+import warehouse.model.dto.MovingDto;
+import warehouse.model.dto.SaleDto;
+import warehouse.repository.OperationRepository;
+import warehouse.repository.ProductRepository;
+import warehouse.repository.WarehouseRepository;
+import warehouse.util.InputValidator;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static me.marat.warehouse.domain.OperationType.*;
+import static warehouse.domain.OperationType.*;
 
 @Service
 public class OperationService {

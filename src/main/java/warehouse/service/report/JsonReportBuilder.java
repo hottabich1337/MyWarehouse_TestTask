@@ -1,17 +1,18 @@
 package warehouse.service.report;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import me.marat.warehouse.domain.Warehouse;
-import me.marat.warehouse.model.dto.ProductDto;
-import me.marat.warehouse.model.dto.WarehouseDto;
-import me.marat.warehouse.model.report.ReportFormat;
-import me.marat.warehouse.model.report.ReportType;
-import me.marat.warehouse.repository.WarehouseRepository;
-import me.marat.warehouse.service.OperationService;
-import me.marat.warehouse.service.ProductService;
+
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import warehouse.domain.Warehouse;
+import warehouse.model.dto.ProductDto;
+import warehouse.model.dto.WarehouseDto;
+import warehouse.model.report.ReportFormat;
+import warehouse.model.report.ReportType;
+import warehouse.repository.WarehouseRepository;
+import warehouse.service.OperationService;
+import warehouse.service.ProductService;
 
 import java.io.File;
 import java.io.IOException;

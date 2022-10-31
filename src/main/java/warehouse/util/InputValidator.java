@@ -1,8 +1,9 @@
 package warehouse.util;
 
 import lombok.experimental.UtilityClass;
-import me.marat.warehouse.model.dto.AdmissionDto;
-import me.marat.warehouse.model.dto.SaleDto;
+import warehouse.model.dto.AdmissionDto;
+import warehouse.model.dto.SaleDto;
+
 
 import java.math.BigDecimal;
 

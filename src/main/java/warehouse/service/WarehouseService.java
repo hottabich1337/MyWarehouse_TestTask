@@ -1,10 +1,11 @@
 package warehouse.service;
 
-import me.marat.warehouse.domain.Warehouse;
-import me.marat.warehouse.model.dto.WarehouseDto;
-import me.marat.warehouse.repository.WarehouseRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import warehouse.domain.Warehouse;
+import warehouse.model.dto.WarehouseDto;
+import warehouse.repository.WarehouseRepository;
 
 import java.util.List;
 import java.util.stream.Collectors;
