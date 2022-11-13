@@ -37,4 +37,14 @@ public class WarehouseController {
     public ApiResponse<WarehouseDto> findByName(@RequestParam String name) {
         return ApiResponse.ok(warehouseService.findByName(name));
     }
+
+    @PostMapping("/update")
+    public void update(@RequestParam String name){
+        warehouseService.update(name);
+    }
+
+    @PostMapping("/delete")
+    public void delete(@RequestParam String name){
+        warehouseService.delete(name);
+    }
 }

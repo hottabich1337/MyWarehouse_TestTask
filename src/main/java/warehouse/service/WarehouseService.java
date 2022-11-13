@@ -38,4 +38,13 @@ public class WarehouseService {
                 .map(entity ->  new WarehouseDto(entity.getId(), entity.getName()))
                 .collect(Collectors.toList());
     }
+
+    public void update(String name){
+        warehouseRepository.save(warehouseRepository.getByName(name));
+    }
+
+    public void delete(String name){
+        warehouseRepository.deleteById(warehouseRepository.getByName(name).getId());
+    }
+
 }
