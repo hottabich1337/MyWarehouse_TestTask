@@ -59,30 +59,33 @@ public class OperationService {
 
     public void admission(AdmissionDto dto) {
         InputValidator.validateAdmissionDto(dto);
+        Operation operation = new Operation();
+        operationRepository.save(operation);
+        operation.setOperationType(ADMISSION);
         dto.getProductList().forEach(item -> {
-            Product product = productService.searchByArticle(item.getArticle());
-            Warehouse warehouse = warehouseRepository.getReferenceById(dto.getWarehouseId());
-
+            OperationItems operationItems =new OperationItems();
+            operationItems.setOperation(operation);
+            operationItems.setCount(item.getCount());
+            operationItems.setPrice(item.getPrice());
+            operationItems.setProduct(productRepository.getProductByArticle(item.getArticle()));
+            Product product = productRepository.getProductByArticle(item.getArticle());
             product.setLastAdmissionPrice(item.getPrice());
+            productRepository.save(product);
+            operationItems.setId(new OperationItemsId(operation.getId(), product.getId()));
+            operation.getOperations().add(operationItems);
 
-            Operation operation = new Operation();
-            operation.setOperationNumber(dto.getNumber());
-            operation.setCount(item.getCount());
-            operation.setPrice(item.getPrice());
-            operation.setOperationType(ADMISSION);
-            operation.setWarehouseTo(dto.getWarehouseId());
-            operation.setProductId(product.getId());
 
-            changeItemCountInWarehouse(ADMISSION, product, warehouse, item.getCount());
-
-            operationRepository.save(operation);
-            productService.update(product);
         });
+        operationRepository.save(operation);
     }
 
     public void sale(SaleDto dto) {
         InputValidator.validateSaleDto(dto);
+        Operation operation = new Operation();
+        operationRepository.save(operation);
+        operation.setOperationType(SALE);
         dto.getProductList().forEach(item -> {
+            OperationItems operationItems =new OperationItems();
             Product product = productService.searchByArticle(item.getArticle());
             Warehouse warehouse = warehouseRepository.getReferenceById(dto.getWarehouseId());
 
@@ -91,20 +94,24 @@ public class OperationService {
                 throw new InsufficientItemException(product.getName(), count);
             }
             product.setLastSellingPrice(item.getPrice());
+            operationItems.setOperation(operation);
+            operationItems.setCount(item.getCount());
+            operationItems.setPrice(item.getPrice());
+            productRepository.save(product);
+            operationItems.setId(new OperationItemsId(operation.getId(), product.getId()));
+            operation.getOperations().add(operationItems);
+//            Operation operation = new Operation();
+//            operation.setOperationNumber(dto.getNumber());
+//            operation.setCount(item.getCount());
+//            operation.setPrice(item.getPrice());
+//            operation.setOperationType(SALE);
+//            operation.setWarehouseFrom(dto.getWarehouseId());
+//            operation.setProductId(product.getId());
+//
+//            changeItemCountInWarehouse(SALE, product, warehouse, item.getCount());
 
-            Operation operation = new Operation();
-            operation.setOperationNumber(dto.getNumber());
-            operation.setCount(item.getCount());
-            operation.setPrice(item.getPrice());
-            operation.setOperationType(SALE);
-            operation.setWarehouseFrom(dto.getWarehouseId());
-            operation.setProductId(product.getId());
-
-            changeItemCountInWarehouse(SALE, product, warehouse, item.getCount());
-
-            operationRepository.save(operation);
-            productService.update(product);
         });
+        operationRepository.save(operation);
     }
 
     public void moving(MovingDto dto) {

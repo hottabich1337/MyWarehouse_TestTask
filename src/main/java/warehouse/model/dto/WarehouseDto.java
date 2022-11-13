@@ -15,7 +15,7 @@ import java.util.Map;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class WarehouseDto {
     private Long id;
-    @NotBlank
+    @NotBlank(message = "Name should be not empty")
     private String name;
     private Map<String,Integer> maps;
 

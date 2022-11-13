@@ -15,8 +15,9 @@ import java.math.BigDecimal;
 @Entity(name = "OperationItems")
 @Table(name = "operation_items")
 public class OperationItems implements Serializable {
-    @Id
-    private Long id;
+
+    @EmbeddedId
+    private OperationItemsId id = new OperationItemsId();
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("id")
     private Operation operation;
