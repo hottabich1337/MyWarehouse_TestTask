@@ -42,6 +42,12 @@ public class ProductService {
         return productRepository.findAll();
     }
 
+    public void update(ProductDto productDto) {
+        Product product = productRepository.getProductByArticle(productDto.getArticle());
+        product.setName(productDto.getName());
+        productRepository.save(product);
+    }
+
     public void update(Product product) {
         productRepository.save(product);
     }

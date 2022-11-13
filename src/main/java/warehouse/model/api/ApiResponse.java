@@ -33,5 +33,12 @@ public class ApiResponse<T> {
         apiResponse.setError(errorMsg);
         return apiResponse;
     }
+    public static <T> ApiResponse<T> error(String error,T data) {
+        ApiResponse apiResponse = new ApiResponse();
+        apiResponse.setData(data);
+        apiResponse.setError(error);
+        apiResponse.setStatus(ApiResponseStatus.ERROR);
+        return apiResponse;
+    }
 
 }

@@ -29,8 +29,8 @@ public class WarehouseController {
     }
 
     @GetMapping("/{id}")
-    public ApiResponse<WarehouseDto> getById(@RequestBody WarehouseDto dto) {
-        return ApiResponse.ok(warehouseService.getById(dto.getId()));
+    public ApiResponse<WarehouseDto> getById(@PathVariable Long id) {
+        return ApiResponse.ok(warehouseService.getById(id));
     }
 
     @GetMapping
@@ -39,8 +39,8 @@ public class WarehouseController {
     }
 
     @PostMapping("/update")
-    public void update(@RequestParam String name){
-        warehouseService.update(name);
+    public void update(@RequestBody WarehouseDto dto){
+        warehouseService.update(dto);
     }
 
     @PostMapping("/delete")

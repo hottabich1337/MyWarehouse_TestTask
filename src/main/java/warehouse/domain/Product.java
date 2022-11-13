@@ -37,4 +37,11 @@ public class Product {
             orphanRemoval = true
     )
     private List<WarehouseProduct> warehouses = new ArrayList<>();
+
+    @OneToMany(
+            mappedBy = "product",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<OperationItems> operationItems = new ArrayList<>();
 }

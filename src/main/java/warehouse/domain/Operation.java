@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -38,4 +40,11 @@ public class Operation {
 
     @Column(name = "count")
     private Integer count;
+
+    @OneToMany(
+            mappedBy = "operation",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<OperationItems> operations = new ArrayList<>();
 }

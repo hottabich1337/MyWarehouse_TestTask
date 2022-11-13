@@ -2,15 +2,15 @@ package warehouse.endpoint;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import warehouse.domain.Operation;
 import warehouse.model.api.ApiResponse;
 import warehouse.model.dto.AdmissionDto;
 import warehouse.model.dto.MovingDto;
 import warehouse.model.dto.SaleDto;
 import warehouse.service.OperationService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/operation")
@@ -34,6 +34,17 @@ public class OperationController {
     @PostMapping("/moving")
     public ApiResponse moving(@RequestBody MovingDto movingDto) {
         operationService.moving(movingDto);
+        return ApiResponse.ok();
+    }
+
+    @GetMapping
+    public ApiResponse<List<Operation>> getAllOperations(){
+        return ApiResponse.ok(operationService.getAllOperations());
+    }
+
+    @PostMapping("/delete")
+    public ApiResponse delete(@RequestParam Long id){
+        operationService.delete(id);
         return ApiResponse.ok();
     }
 

@@ -3,10 +3,12 @@ package warehouse.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 import warehouse.domain.*;
 import warehouse.exception.InsufficientItemException;
 import warehouse.model.dto.AdmissionDto;
 import warehouse.model.dto.MovingDto;
+import warehouse.model.dto.OperationItemDto;
 import warehouse.model.dto.SaleDto;
 import warehouse.repository.OperationRepository;
 import warehouse.repository.ProductRepository;
@@ -203,5 +205,12 @@ public class OperationService {
         }
         return productMap;
 
+    }
+   /* public void update(Long id){
+        Operation operation = operationRepository.getReferenceById(id);
+
+    }*/
+    public void delete(Long id){
+        operationRepository.deleteById(id);
     }
 }

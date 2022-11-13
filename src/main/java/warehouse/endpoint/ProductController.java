@@ -32,18 +32,23 @@ public class ProductController {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     @PostMapping("/update")
     public void update(@Valid @RequestBody ProductDto dto) {
-         productService.update(productService.searchByArticle(dto.getArticle()));
+         productService.update(dto);
     }
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     @GetMapping("/")
     public ApiResponse<List<Product>> getAll() {
         return ApiResponse.ok(productService.viewAllProduct());
     }
+
+    @GetMapping("/{article}")
+    public ApiResponse<Product> getByArticle(@PathVariable Long article){
+        return ApiResponse.ok(productService.searchByArticle(article));
+    }
     @PostMapping("/delete")
     public void delete(@RequestBody ProductDto dto) {
         productService.delete(dto.getId());
     }
 
-
+//Прочитать, изменить и сохранить в базу
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }

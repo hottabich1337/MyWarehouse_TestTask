@@ -3,7 +3,9 @@ package warehouse.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import warehouse.domain.Product;
 import warehouse.domain.Warehouse;
+import warehouse.model.dto.ProductDto;
 import warehouse.model.dto.WarehouseDto;
 import warehouse.repository.WarehouseRepository;
 
@@ -39,10 +41,12 @@ public class WarehouseService {
                 .collect(Collectors.toList());
     }
 
-    public void update(String name){
-        warehouseRepository.save(warehouseRepository.getByName(name));
-    }
 
+    public void update(WarehouseDto warehouseDto) {
+        Warehouse warehouse = warehouseRepository.getReferenceById(warehouseDto.getId());
+        warehouse.setName(warehouseDto.getName());
+        warehouseRepository.save(warehouse);
+    }
     public void delete(String name){
         warehouseRepository.deleteById(warehouseRepository.getByName(name).getId());
     }
